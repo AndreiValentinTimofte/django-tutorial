@@ -8,8 +8,12 @@ WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+# Aggiorna i pacchetti e installa gli strumenti di compilazione E le intestazioni di sviluppo di Python
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc build-essential python3-dev && \
+    rm -rf /var/lib/apt/lists/*
+
 # Copia i file di dipendenza e installali
-# Questo passo è fatto separatamente per sfruttare la cache di Docker
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
@@ -20,6 +24,4 @@ COPY . /app/
 EXPOSE 8000
 
 # Comando per avviare l'applicazione con Gunicorn
-# 'mysite.wsgi:application' deve corrispondere al percorso del tuo file wsgi.py
-# Se il tuo progetto Django principale si chiama 'mysite', questo è corretto.
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi:application"]

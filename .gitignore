@@ -5,6 +5,20 @@ build/
 dist/
 wheels/
 *.egg-info
+db.sqlite3
 
 # Virtual environments
 .venv
+venv/
+env/
+
+# Django specific
+media/
+staticfiles/
+
+# Sensitive files
+.env
+
+# IDE specific
+.idea/
+.vscode/

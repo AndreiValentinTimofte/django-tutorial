@@ -77,6 +77,13 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 # Copy the requirements file into the container
 COPY requirements.txt /app/
+
+# Install system dependencies required for building Python packages
+# This is necessary for packages that require compilation, such as those with C extensions
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc build-essential && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire project into the container
@@ -85,4 +92,9 @@ COPY . /app/
 EXPOSE 8000
 # Command to run the application using Gunicorn
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi:application"]
+```
+### Build the Docker image
+In the terminal, navigate to your project directory and run the following command to build the Docker image
+```bash
+docker build -t my-django-app .
 ```
