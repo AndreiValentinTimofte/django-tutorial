@@ -98,3 +98,12 @@ In the terminal, navigate to your project directory and run the following comman
 ```bash
 docker build -t my-django-app .
 ```
+### Run the Docker container
+Run the following command to start a container from the image you just built:
+```bash
+docker run -d -p 8000:8000  -e SECRET_KEY='YOUR_SECRET_KEY' my-django-app
+```
+***
+For the rest of the steps, you can follow the instructions in the official tutorial, https://docs.djangoproject.com/en/5.2/intro/tutorial01/
+
+## Andrei Valentin Timofte
