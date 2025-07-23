@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.lobby_view, name='lobby'),  # Mappa l'URL vuoto alla vista 'lobby_view'
     path('polls/', include('polls.urls')),
 ]
