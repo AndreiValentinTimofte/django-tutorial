@@ -1,0 +1,23 @@
+# select FROM QUESTION WHERE a=5
+questions = session.query(Question).where('a=5')
+
+question
+
+type(questions[0])
+"class Question"
+
+[Question(), Question(), Question()]
+
+
+for question in questions:
+    print(question)
+    if question.was_published_recently():
+        print('new question bro!')
+
+
+app = FastAPI
+
+http://127.0.0.1:8000/ticketing/ticketing
+http://127.0.0.1:8000/polls/""
+http://127.0.0.1:8000/polls/ciaomamma?saluto=hello
+http://127.0.0.1:8000/ticketing/ticketing?data_elab=20250712
