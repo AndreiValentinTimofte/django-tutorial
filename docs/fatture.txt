@@ -14,3 +14,5 @@ numerofattura | codice | descrizione | prezzo | qta
 000001        | 0002   | rd2rd21     | 52     |   9
 000001        | 0003   | fasdafd     | 10     | 100
 ....
+
+
