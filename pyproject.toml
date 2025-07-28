@@ -5,6 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
-    "django>=4.2.23",
-    "gunicorn>=23.0.0",
+    "asgiref==3.8.1",
+    "django==4.2.23",
+    "gunicorn==23.0.0",
+    "packaging==25.0",
+    "python-dotenv==1.0.1",
+    "sqlparse==0.5.3",
+    "typing-extensions==4.13.2",
+    "tzdata==2025.2",
 ]
