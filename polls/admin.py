@@ -6,6 +6,7 @@ from .models import Question, Choice
 
 
 class QuestionAdmin(admin.ModelAdmin):
+    # pc lavoro
     fields = ['pub_date', 'question_text']
 
     list_display = ('question_text', 'pub_date', 'was_published_recently')
