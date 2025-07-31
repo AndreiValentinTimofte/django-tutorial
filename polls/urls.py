@@ -6,4 +6,6 @@ app_name = "polls" # Questo è per il namespacing degli URL, utile in progetti p
 urlpatterns = [
     path("", views.index, name="index"), # Questo mappa l'URL vuoto (es. /polls/) alla vista 'index'
     path("<int:question_id>/", views.detail, name="detail"),
+    path("<int:question_id>/results/", views.results, name="results"),
+    path("<int:question_id>/vote/", views.vote, name="vote"),
 ]
