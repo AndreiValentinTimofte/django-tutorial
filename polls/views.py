@@ -1,8 +1,8 @@
 # polls/views.py
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
-from .models import Question
+from .models import Question, Choice
 
 
 # Create your views here.
@@ -19,3 +19,19 @@ def index(request):
 
 
     # return HttpResponse("Ciao, Valen! La tua app Django 'polls' funziona!")
+
+
+
+
+def detail(request, question_id):
+
+    question = get_object_or_404(Question, pk=question_id)
+
+    context = {
+        'question': question,
+    }
+
+    return render(request, 'polls/detail.html', context)
+
+
+
